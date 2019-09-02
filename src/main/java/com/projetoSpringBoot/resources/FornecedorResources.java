@@ -1,10 +1,10 @@
 package com.projetoSpringBoot.resources;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -27,29 +27,8 @@ public class FornecedorResources {
 	@GetMapping
 	public String hello() {
 		return "Olá Fabrício...";
-	}
+	}	
 	
-	/*
-	@GetMapping("/consultaTeste")
-	public List<Fornecedor> getFornecedoresTeste() {
-		
-		List<Fornecedor> listaFornecedor = new ArrayList<>();
-		
-		for (int i = 1; i <= 10; i++ ) {
-			
-			Fornecedor f = new Fornecedor();
-			
-			f.setId(i);
-			f.setNome("Nome" + i);
-			f.setCnpj("Cnpj" + i);
-			
-			listaFornecedor.add(f);
-			
-		}
-				
-		return listaFornecedor;
-	}
-*/	
 	@PostMapping
 	public ResponseEntity<Fornecedor> cadastrar(@RequestBody Fornecedor fornecedor) throws IOException {
 				
@@ -82,6 +61,8 @@ public class FornecedorResources {
 	@GetMapping("/consulta")
 	public List<Fornecedor> consulta() {
 		
+		List<Fornecedor> listaFornecedor = new ArrayList<Fornecedor>();
+		
 		try {
 		
 		//Lê O ARQUIVO
@@ -94,7 +75,7 @@ public class FornecedorResources {
         	System.out.println(linha);
         	Gson gson = new Gson();			
 			Fornecedor fornecedor = gson.fromJson(linha, Fornecedor.class);
-        	
+			listaFornecedor.add(fornecedor);
             
         }
         		
@@ -104,7 +85,7 @@ public class FornecedorResources {
 		
 	}
 				
-		return null;
+		return listaFornecedor;
 		
 	}
 	
