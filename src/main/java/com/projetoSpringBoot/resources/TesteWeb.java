@@ -41,6 +41,7 @@ public class TesteWeb {
 	public ResponseEntity<Calculadora> calcular(@RequestBody Calculadora calculadora) {
 		
 		char operacao = calculadora.getOperacao();
+		//xxxfabricio
 		
 		switch (calculadora.getOperacao()) {
 		case '+':		
