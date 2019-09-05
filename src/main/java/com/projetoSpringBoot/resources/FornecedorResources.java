@@ -28,28 +28,7 @@ public class FornecedorResources {
 	public String hello() {
 		return "Olá Fabrício...";
 	}
-	
-	/*
-	@GetMapping("/consultaTeste")
-	public List<Fornecedor> getFornecedoresTeste() {
 		
-		List<Fornecedor> listaFornecedor = new ArrayList<>();
-		
-		for (int i = 1; i <= 10; i++ ) {
-			
-			Fornecedor f = new Fornecedor();
-			
-			f.setId(i);
-			f.setNome("Nome" + i);
-			f.setCnpj("Cnpj" + i);
-			
-			listaFornecedor.add(f);
-			
-		}
-				
-		return listaFornecedor;
-	}
-*/	
 	@PostMapping
 	public ResponseEntity<Fornecedor> cadastrar(@RequestBody Fornecedor fornecedor) throws IOException {
 				
