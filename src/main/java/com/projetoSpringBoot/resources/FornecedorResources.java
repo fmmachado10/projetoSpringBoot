@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.projetoSpringBoot.modelo.Fornecedor;
 
-//fabricio
+//fabricio moreira
 
 @RestController
 @RequestMapping("/fornecedor")
