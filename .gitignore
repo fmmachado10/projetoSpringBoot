@@ -29,9 +29,4 @@ build/
 
 ### VS Code ###
 .vscode/
-<<<<<<< HEAD
-/mvnw.cmd
-/mvnw
-=======
 /bin/
->>>>>>> branch 'master' of https://github.com/fmmachado10/projetoSpringBoot.git
