@@ -1,0 +1,10 @@
+CREATE TABLE curso (
+ id_curso integer CONSTRAINT pk_id_curso PRIMARY KEY,
+ nome varchar(30) NOT NULL, 
+ categoria varchar(40) NOT NULL 
+);
+
+INSERT INTO public.curso(
+	nome, categoria)
+	VALUES ('a', 'a');
+

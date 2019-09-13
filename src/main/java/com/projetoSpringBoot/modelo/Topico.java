@@ -15,12 +15,6 @@ public class Topico {
 	private Curso curso;
 	private List<Resposta> respostas = new ArrayList<>();
 
-	public Topico(String titulo, String mensagem, Curso curso) {
-		this.titulo = titulo;
-		this.mensagem = mensagem;
-		this.curso = curso;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

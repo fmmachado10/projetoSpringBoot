@@ -1,16 +1,25 @@
 package com.projetoSpringBoot.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Curso", schema = "public")
 public class Curso {
 
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name="nome")
 	private String nome;
+	
+	@Column(name="categoria")
 	private String categoria;
-
-	public Curso(String nome, String categoria) {
-		this.nome = nome;
-		this.categoria = categoria;
-	}
 	
 	@Override
 	public int hashCode() {

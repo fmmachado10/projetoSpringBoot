@@ -10,8 +10,7 @@ import com.projetoSpringBoot.modelo.Topico;
 @Controller
 public class TopicosController {
 
-	@RequestMapping("/topicos")
-	
+	@RequestMapping("/topicos")	
 	public List<Topico> lista() {
 		
 		return null;

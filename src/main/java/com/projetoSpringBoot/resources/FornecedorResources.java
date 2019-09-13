@@ -1,11 +1,7 @@
 package com.projetoSpringBoot.resources;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 import com.projetoSpringBoot.modelo.Fornecedor;
 
 @RestController
@@ -57,7 +51,7 @@ public class FornecedorResources {
 		return ResponseEntity.status(201).body(fornecedor);
 		
 	}
-	
+	/*
 	@GetMapping("/consulta")
 	public List<Fornecedor> consulta() {
 		
@@ -78,15 +72,17 @@ public class FornecedorResources {
 			listaFornecedor.add(fornecedor);
             
         }
+        
         		
 	} catch (JsonSyntaxException | IOException e) {
 		
 		e.printStackTrace();
 		
 	}
-				
+			
 		return listaFornecedor;
 		
 	}
+	*/
 	
 }
