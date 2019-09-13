@@ -11,6 +11,10 @@ public class CursoDto {
 	private String nome;
 	private String categoria;
 	
+	public CursoDto() {
+	
+	}
+
 	public CursoDto(Curso curso) {
 		
 		this.id = curso.getId();
@@ -45,10 +49,14 @@ public class CursoDto {
 		this.categoria = categoria;
 	}
 
-	public static List<CursoDto> converter(List<Curso> cursos) {
+	public static List<CursoDto> converteParaDto(List<Curso> cursos) {
 		
 		return cursos.stream().map(CursoDto::new).collect(Collectors.toList());
 		
+	}
+	
+	public Curso converteParaCurso(CursoDto cursoDto) {
+		return new Curso(nome, categoria);
 	}
 
 

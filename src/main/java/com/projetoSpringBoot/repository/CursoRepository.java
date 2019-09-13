@@ -9,5 +9,6 @@ import com.projetoSpringBoot.modelo.Curso;
 public interface CursoRepository extends JpaRepository<Curso, Long>  {
 
 	List<Curso> findByNome(String nomeCurso);
-
+	
+	
 }
