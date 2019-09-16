@@ -58,6 +58,8 @@ public class CursoDto {
 	public Curso converteParaCurso(CursoDto cursoDto) {
 		return new Curso(nome, categoria);
 	}
+	
+	//fabricio
 
 
 }
