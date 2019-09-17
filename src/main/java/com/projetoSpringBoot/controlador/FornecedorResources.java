@@ -1,4 +1,4 @@
-package com.projetoSpringBoot.resources;
+package com.projetoSpringBoot.controlador;
 
 import java.io.FileWriter;
 import java.io.IOException;
