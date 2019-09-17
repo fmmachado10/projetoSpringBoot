@@ -16,7 +16,7 @@ import com.projetoSpringBoot.modelo.Fornecedor;
 
 @RestController
 @RequestMapping("/fornecedor")
-public class FornecedorResources {
+public class FornecedorController {
 	
 	@GetMapping
 	public String hello() {

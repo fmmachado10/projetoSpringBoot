@@ -2,14 +2,21 @@ package com.projetoSpringBoot.controlador;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projetoSpringBoot.dto.CursoDto;
@@ -52,6 +59,31 @@ public class CursoController {
 
 		return ResponseEntity.status(201).body(curso);
 
+	}
+	
+	@DeleteMapping("/{id}")	
+	@ApiOperation(value = "Cadastra um curso pelo id.")
+	public ResponseEntity<Long> delete(@PathVariable Long id) {
+		
+		cursoRepository.deleteById(id);
+		
+		return new ResponseEntity<>(id, HttpStatus.OK);
+	}
+	
+	@PutMapping("/{id}")
+	@ApiOperation(value = "Atualiza um curso.")
+	public ResponseEntity<Curso> update(@PathVariable Long id, @RequestBody Curso c) {
+		/*		
+		Curso curso = cursoRepository.findById(id);
+		
+		BeanUtils.copyProperties(c, curso, "id");
+		
+		cursoRepository.save(curso);
+		
+		return ResponseEntity.ok(curso);
+		*/
+		
+		return null;
 	}
 
 }

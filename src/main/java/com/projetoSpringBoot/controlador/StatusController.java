@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/status")
-public class StatusResources {
+public class StatusController {
 	
 	@GetMapping
 	public String hello() {
@@ -23,5 +23,7 @@ public class StatusResources {
 	public ResponseEntity<?> invalido() {
 		return ResponseEntity.badRequest().build();
 	}
+	
+	
 
 }
