@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.BeanUtils;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projetoSpringBoot.dto.CursoDto;
@@ -48,18 +48,21 @@ public class CursoController {
 		}
 
 	}
+	
 
 	@PostMapping
 	@ApiOperation(value = "Cadastra um curso.")
-	public ResponseEntity<Curso> cadastrar(@RequestBody CursoDto cursoDto) throws IOException {
+	public ResponseEntity<CursoDto> cadastrar(@RequestBody @Valid  CursoDto cursoDto) throws IOException {
 
 		Curso curso = cursoDto.converteParaCurso(cursoDto);
 
 		cursoRepository.save(curso);
-
-		return ResponseEntity.status(201).body(curso);
+		
+		return ResponseEntity.status(201).body(new CursoDto(curso));
 
 	}
+	
+	
 	
 	@DeleteMapping("/{id}")	
 	@ApiOperation(value = "Cadastra um curso pelo id.")
@@ -69,6 +72,7 @@ public class CursoController {
 		
 		return new ResponseEntity<>(id, HttpStatus.OK);
 	}
+	
 	
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Atualiza um curso.")
@@ -85,5 +89,7 @@ public class CursoController {
 		
 		return null;
 	}
+	
+	
 
 }

@@ -3,12 +3,21 @@ package com.projetoSpringBoot.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.projetoSpringBoot.modelo.Curso;
 
 public class CursoDto {
 	
+	
 	private Long id;
+	
+	@NotNull @NotEmpty(message = "O campo nome deve ser preenchido.") @Length(min = 5, max = 50, message = "Campo nome deve ter entre 5 e 50 caracteres.")
 	private String nome;
+	
 	private String categoria;
 	
 	public CursoDto() {
