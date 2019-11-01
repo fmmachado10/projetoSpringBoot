@@ -7,4 +7,12 @@ CREATE TABLE curso (
 INSERT INTO public.curso(
 	nome, categoria)
 	VALUES ('a', 'a');
+	
+	
+CREATE TABLE moto (
+ id integer CONSTRAINT pk_id PRIMARY KEY,
+ modelo varchar(30) NOT NULL, 
+ ano varchar(10) NOT NULL,
+ cor varchar(30) NOT NULL	
+);	
 

@@ -20,75 +20,73 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projetoSpringBoot.dto.CursoDto;
+import com.projetoSpringBoot.dto.MotoDto;
 import com.projetoSpringBoot.modelo.Curso;
+import com.projetoSpringBoot.modelo.Moto;
 import com.projetoSpringBoot.repository.CursoRepository;
+import com.projetoSpringBoot.repository.MotoRepository;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/cursos")
-@Api(value = "API REST CURSOS")
+@RequestMapping("/motos")
+@Api(value = "API REST MOTOS")
 @CrossOrigin(origins = "*")
-public class CursoController {
+public class MotoController {
 
 	@Autowired
-	private CursoRepository cursoRepository;
+	private MotoRepository motoRepository;
 
 	@GetMapping
-	@ApiOperation(value = "Retorna uma lista de cursos.")
-	public List<CursoDto> lista(String nome) {
+	@ApiOperation(value = "Retorna uma lista de motos.")
+	public List<MotoDto> lista(String modelo) {
 
-		if (nome == null) {
-			List<Curso> cursos = cursoRepository.findAll();
-			return CursoDto.converteParaDto(cursos);
+		if (modelo == null) {
+			List<Moto> motos = motoRepository.findAll();
+			return MotoDto.converteParaDto(motos);
 		} else {
-			List<Curso> cursos = cursoRepository.findByNome(nome);
-			return CursoDto.converteParaDto(cursos);
+			List<Moto> motos = motoRepository.findByNome(modelo);
+			return MotoDto.converteParaDto(motos);
 		}
 
 	}
-	
 
 	@PostMapping
-	@ApiOperation(value = "Cadastra um curso.")
-	public ResponseEntity<CursoDto> cadastrar(@RequestBody @Valid  CursoDto cursoDto) throws IOException {
+	@ApiOperation(value = "Cadastra uma moto.")
+	public ResponseEntity<MotoDto> cadastrar(@RequestBody @Valid MotoDto motoDto) throws IOException {
 
-		Curso curso = cursoDto.converteParaCurso(cursoDto);
+		Moto moto = motoDto.converteParaMoto(motoDto);
 
-		cursoRepository.save(curso);
-		
-		return ResponseEntity.status(201).body(new CursoDto(curso));
+		motoRepository.save(moto);
+
+		return ResponseEntity.status(201).body(new MotoDto(moto));
 
 	}
-	
-	
-	@DeleteMapping("/{id}")	
+
+	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Cadastra um curso pelo id.")
 	public ResponseEntity<Long> delete(@PathVariable Long id) {
-		
-		cursoRepository.deleteById(id);
-		
+
+		motoRepository.deleteById(id);
+
 		return new ResponseEntity<>(id, HttpStatus.OK);
 	}
-	
-	
+
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Atualiza um curso.")
 	public ResponseEntity<Curso> update(@PathVariable Long id, @RequestBody Curso c) {
-		/*		
-		Curso curso = cursoRepository.findById(id);
-		
-		BeanUtils.copyProperties(c, curso, "id");
-		
-		cursoRepository.save(curso);
-		
-		return ResponseEntity.ok(curso);
-		*/
-		
+		/*
+		 * Curso curso = cursoRepository.findById(id);
+		 * 
+		 * BeanUtils.copyProperties(c, curso, "id");
+		 * 
+		 * cursoRepository.save(curso);
+		 * 
+		 * return ResponseEntity.ok(curso);
+		 */
+
 		return null;
 	}
-	
-	
 
 }

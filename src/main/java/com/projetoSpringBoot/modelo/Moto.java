@@ -57,7 +57,12 @@ public class Moto {
 		this.cor = cor;
 	}
 	
-	
+	public Moto(String modelo, String ano, String cor) {
+		super();		
+		this.modelo = modelo;
+		this.ano = ano;
+		this.cor = cor;
+	}
 	
 	
 

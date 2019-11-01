@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.projetoSpringBoot.modelo.Curso;
+import com.projetoSpringBoot.modelo.Moto;
 
-public interface CursoRepository extends JpaRepository<Curso, Long> {
+public interface MotoRepository extends JpaRepository<Moto, Long> {
 
-	List<Curso> findByNome(String nomeCurso);
+	
+	List<Moto> findByNome(String modelo);
 
 	void deleteById(Long id);
 	
