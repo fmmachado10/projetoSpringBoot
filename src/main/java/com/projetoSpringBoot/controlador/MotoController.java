@@ -46,7 +46,7 @@ public class MotoController {
 			List<Moto> motos = motoRepository.findAll();
 			return MotoDto.converteParaDto(motos);
 		} else {
-			List<Moto> motos = motoRepository.findByNome(modelo);
+			List<Moto> motos = motoRepository.findByModelo(modelo);
 			return MotoDto.converteParaDto(motos);
 		}
 

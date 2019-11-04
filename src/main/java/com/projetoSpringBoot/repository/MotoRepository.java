@@ -10,7 +10,7 @@ import com.projetoSpringBoot.modelo.Moto;
 public interface MotoRepository extends JpaRepository<Moto, Long> {
 
 	
-	List<Moto> findByNome(String modelo);
+	List<Moto> findByModelo(String modelo);
 
 	void deleteById(Long id);
 	

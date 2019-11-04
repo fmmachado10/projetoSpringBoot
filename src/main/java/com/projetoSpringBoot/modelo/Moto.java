@@ -24,6 +24,9 @@ public class Moto {
 	
 	@Column(name="cor")
 	private String cor;
+	
+	public Moto() {		
+	}
 
 	public Long getId() {
 		return id;

@@ -76,7 +76,7 @@ public class CursoController {
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Atualiza um curso.")
 	public ResponseEntity<Curso> update(@PathVariable Long id, @RequestBody Curso c) {
-		/*		
+	/*
 		Curso curso = cursoRepository.findById(id);
 		
 		BeanUtils.copyProperties(c, curso, "id");
@@ -84,7 +84,7 @@ public class CursoController {
 		cursoRepository.save(curso);
 		
 		return ResponseEntity.ok(curso);
-		*/
+	*/
 		
 		return null;
 	}
