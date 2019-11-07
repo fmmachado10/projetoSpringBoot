@@ -1,5 +1,6 @@
 package com.projetoSpringBoot.controlador;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +17,9 @@ public class FotosUploadController {
 	private Arquivos arq;
 	
 	public void upload(@RequestParam MultipartFile foto) {
+		
 		arq.salvarFoto(foto);
+		
 	}
 	
 
