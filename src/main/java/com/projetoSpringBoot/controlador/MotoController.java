@@ -65,7 +65,7 @@ public class MotoController {
 	}
 
 	@DeleteMapping("/{id}")
-	@ApiOperation(value = "Cadastra um curso pelo id.")
+	@ApiOperation(value = "Deleta uma moto pelo id.")
 	public ResponseEntity<Long> delete(@PathVariable Long id) {
 
 		motoRepository.deleteById(id);
@@ -74,8 +74,8 @@ public class MotoController {
 	}
 
 	@PutMapping("/{id}")
-	@ApiOperation(value = "Atualiza um curso.")
-	public ResponseEntity<Curso> update(@PathVariable Long id, @RequestBody Curso c) {
+	@ApiOperation(value = "Atualiza uma moto.")
+	public ResponseEntity<Curso> update(@PathVariable Long id, @RequestBody Moto m) {
 		/*
 		 * Curso curso = cursoRepository.findById(id);
 		 * 
@@ -84,7 +84,8 @@ public class MotoController {
 		 * cursoRepository.save(curso);
 		 * 
 		 * return ResponseEntity.ok(curso);
-		 */
+		 */		
+		
 
 		return null;
 	}

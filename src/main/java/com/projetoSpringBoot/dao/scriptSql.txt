@@ -16,3 +16,12 @@ CREATE TABLE moto (
  cor varchar(30) NOT NULL	
 );	
 
+
+--Script Json para fazer um POST
+{
+    "modelo": "modelo03",
+    "ano": "ano03",
+    "cor": "cor03"
+}
+
+
