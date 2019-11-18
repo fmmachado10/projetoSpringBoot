@@ -4,15 +4,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.projetoSpringBoot.modelo.Curso;
+import com.projetoSpringBoot.controlador.Locadora;
 import com.projetoSpringBoot.modelo.Moto;
 
-public interface MotoRepository extends JpaRepository<Moto, Long> {
-
+public interface LocadoraRepository extends JpaRepository<Locadora, Long> {
 	
 	List<Moto> findByModelo(String modelo);
 
 	void deleteById(Long id);
-	
-	
+
 }
