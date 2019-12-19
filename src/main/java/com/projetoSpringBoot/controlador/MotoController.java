@@ -6,9 +6,11 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,6 +53,15 @@ public class MotoController {
 		}
 
 	}
+	
+	@GetMapping("/{id}")
+	public MotoDto listaPorId(@PathVariable Long id) {
+		
+		Moto moto = motoRepository.getOne(id);
+		
+		return new MotoDto(moto);
+		
+	}
 
 	@PostMapping
 	@ApiOperation(value = "Cadastra uma moto.")
@@ -66,7 +77,7 @@ public class MotoController {
 
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Deleta uma moto pelo id.")
-	public ResponseEntity<Long> delete(@PathVariable Long id) {
+	public ResponseEntity<?> delete(@PathVariable Long id) {
 
 		motoRepository.deleteById(id);
 
@@ -75,19 +86,23 @@ public class MotoController {
 
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Atualiza uma moto.")
-	public ResponseEntity<Curso> update(@PathVariable Long id, @RequestBody Moto m) {
-		/*
-		 * Curso curso = cursoRepository.findById(id);
-		 * 
-		 * BeanUtils.copyProperties(c, curso, "id");
-		 * 
-		 * cursoRepository.save(curso);
-		 * 
-		 * return ResponseEntity.ok(curso);
-		 */		
+	@Transactional //essa anotação avisa o spring q é p comitar a transação no final do evento.
+	public ResponseEntity<MotoDto> update(@PathVariable Long id, @RequestBody Moto m) {
 		
-
-		return null;
+		  Moto moto = motoRepository.getOne(id);
+		  
+		  moto.setAno(m.getAno());
+		  
+		  moto.setCor(m.getCor());
+		  
+		  moto.setModelo(m.getModelo());
+		  
+		  BeanUtils.copyProperties(m, moto, "id");
+		  
+		  motoRepository.save(moto);
+		  
+		  return ResponseEntity.status(201).body(new MotoDto(moto));
+		
 	}
 
 }

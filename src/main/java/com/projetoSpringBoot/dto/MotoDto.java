@@ -17,7 +17,7 @@ public class MotoDto {
 
 	@NotNull
 	@NotEmpty(message = "O campo nome deve ser preenchido.")
-	@Length(min = 5, max = 50, message = "Campo nome deve ter entre 5 e 30 caracteres.")
+	@Length(min = 5, max = 50, message = "Campo modelo deve ter entre 5 e 30 caracteres.")
 	private String modelo;
 
 	private String ano;
